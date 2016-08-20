@@ -120,16 +120,22 @@
 
                 var containerElement = element[0];
 
-                angular.element(containerElement.querySelector('.swiper-pagination'))
+                function querySelectorLast(container, selector) {
+                    var nodes = container.querySelectorAll(selector);
+
+                    return nodes[nodes.length - 1];
+                }
+
+                angular.element(querySelectorLast(containerElement, '.swiper-pagination'))
                     .attr('id', paginatorId);
 
-                angular.element(containerElement.querySelector('.swiper-button-next'))
+                angular.element(querySelectorLast(containerElement, '.swiper-button-next'))
                     .attr('id', nextButtonId);
 
-                angular.element(containerElement.querySelector('.swiper-button-prev'))
+                angular.element(querySelectorLast(containerElement, '.swiper-button-prev'))
                     .attr('id', prevButtonId);
 
-                angular.element(element[0].querySelector('.swiper-scrollbar'))
+                angular.element(querySelectorLast(containerElement, '.swiper-scrollbar'))
                     .attr('id', scrollBarId);
             },
 
